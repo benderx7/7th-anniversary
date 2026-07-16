@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Moon Knows Our Story</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050813;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* Background */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 80% 15%,rgba(255,255,255,.07),transparent 18%),
+linear-gradient(180deg,#04070f 0%,#07111f 45%,#0b1830 100%);
+z-index:-5;
+}
+
+/* Moon */
+
+.moon{
+
+position:fixed;
+
+top:-80px;
+
+right:-70px;
+
+width:260px;
+
+height:260px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle at 35% 35%,#ffffff,#ececec 65%,#d6d6d6);
+
+box-shadow:
+0 0 50px rgba(255,255,255,.25),
+0 0 120px rgba(173,216,255,.12);
+
+z-index:-2;
+
+animation:moonFloat 8s ease-in-out infinite;
+
+}
+
+@keyframes moonFloat{
+
+50%{
+
+transform:translateY(8px);
+
+}
+
+}
+
+/* Clouds */
+
+.cloud{
+
+position:fixed;
+
+height:90px;
+
+background:rgba(255,255,255,.05);
+
+filter:blur(18px);
+
+border-radius:100px;
+
+animation:cloudMove linear infinite;
+
+z-index:-3;
+
+}
+
+.cloud:nth-child(2){
+
+top:120px;
+
+left:-250px;
+
+width:280px;
+
+animation-duration:65s;
+
+}
+
+.cloud:nth-child(3){
+
+top:310px;
+
+left:-350px;
+
+width:380px;
+
+animation-duration:95s;
+
+}
+
+@keyframes cloudMove{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(calc(100vw + 700px));
+
+}
+
+}
+
+/* Stars */
+
+.stars{
+
+position:fixed;
+
+inset:0;
+
+overflow:hidden;
+
+z-index:-4;
+
+}
+
+.star{
+
+position:absolute;
+
+width:2px;
+
+height:2px;
+
+background:#fff;
+
+border-radius:50%;
+
+animation:twinkle 3s ease-in-out infinite;
+
+}
+
+@keyframes twinkle{
+
+50%{
+
+opacity:.2;
+
+transform:scale(.4);
+
+}
+
+}
+
+/* Hero */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:25px;
+
+}
+
+.heroBox{
+
+max-width:750px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(16px);
+
+padding:45px;
+
+border-radius:28px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+}
+
+.hero small{
+
+letter-spacing:4px;
+
+opacity:.7;
+
+text-transform:uppercase;
+
+}
+
+.hero h1{
+
+margin-top:18px;
+
+font-size:56px;
+
+line-height:1.1;
+
+}
+
+.hero p{
+
+margin-top:18px;
+
+opacity:.75;
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+.countdown{
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+.time{
+
+width:90px;
+
+padding:16px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:18px;
+
+}
+
+.time h2{
+
+font-size:28px;
+
+}
+
+.time span{
+
+font-size:12px;
+
+opacity:.7;
+
+}
+
+button{
+
+margin-top:35px;
+
+padding:16px 42px;
+
+border:none;
+
+border-radius:50px;
+
+background:rgba(255,255,255,.1);
+
+border:1px solid rgba(255,255,255,.12);
+
+color:white;
+
+cursor:pointer;
+
+font-size:16px;
+
+transition:.35s;
+
+backdrop-filter:blur(15px);
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+background:rgba(255,255,255,.16);
+
+}
+
+/* Intro */
+
+.intro{
+
+padding:120px 20px;
+
+max-width:850px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.intro h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+.intro p{
+
+font-size:18px;
+
+line-height:2;
+
+opacity:.8;
+
+}
+
+/* Placeholder */
+
+.placeholder{
+
+height:120px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.heroBox{
+
+padding:30px;
+
+}
+
+.time{
+
+width:72px;
+
+}
+
+.time h2{
+
+font-size:22px;
+
+}
+
+.moon{
+
+width:190px;
+
+height:190px;
+
+right:-50px;
+
+top:-45px;
+
+}
+
+}
+
+
+/* === POLISH V2 === */
+.cloud{
+height:120px!important;
+background:linear-gradient(90deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.18),
+rgba(255,255,255,.08))!important;
+filter:blur(28px)!important;
+opacity:.5!important;
+}
+.heroBox{box-shadow:0 30px 70px rgba(0,0,0,.45)!important;}
+.glass:hover,.voiceCard:hover,.dream:hover{
+box-shadow:0 0 35px rgba(255,255,255,.18)!important;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="moon"></div>
+
+<div class="cloud"></div>
+
+<div class="cloud"></div>
+
+<section class="hero">
+
+<div class="heroBox">
+
+<small>Chapter One</small>
+
+<h1>The Moon Knows Our Story</h1>
+
+<p>
+
+Every story begins with a single night.
+
+Ours began on <b>26 November 2025</b>.
+
+</p>
+
+<div class="countdown">
+
+<div class="time">
+
+<h2 id="days">0</h2>
+
+<span>Days</span>
+
+</div>
+
+<div class="time">
+
+<h2 id="hours">0</h2>
+
+<span>Hours</span>
+
+</div>
+
+<div class="time">
+
+<h2 id="minutes">0</h2>
+
+<span>Minutes</span>
+
+</div>
+
+<div class="time">
+
+<h2 id="seconds">0</h2>
+
+<span>Seconds</span>
+
+</div>
+
+</div>
+
+<button onclick="document.getElementById('chapterOne').scrollIntoView({behavior:'smooth'})">
+
+Begin Chapter One
+
+</button>
+
+</div>
+
+</section>
+
+<section class="intro" id="chapterOne">
+
+<h2>Every Memory Still Shines.</h2>
+
+<p>
+
+Not every relationship is remembered by dates.
+
+Some are remembered by the little moments...
+
+the laughs,
+
+the silence,
+
+the late-night calls,
+
+the hugs,
+
+the prayers,
+
+and all the dreams we once shared.
+
+</p>
+
+</section>
+
+<div class="placeholder"></div>
+
+<script>
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<160;i++){
+
+const s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"%";
+
+s.style.top=Math.random()*100+"%";
+
+s.style.animationDelay=Math.random()*4+"s";
+
+s.style.opacity=Math.random();
+
+stars.appendChild(s);
+
+}
+
+const target=new Date("2026-07-26T00:00:00");
+
+function updateCountdown(){
+
+const now=new Date();
+
+const diff=target-now;
+
+const d=Math.max(0,Math.floor(diff/1000/60/60/24));
+
+const h=Math.max(0,Math.floor(diff/1000/60/60)%24);
+
+const m=Math.max(0,Math.floor(diff/1000/60)%60);
+
+const s=Math.max(0,Math.floor(diff/1000)%60);
+
+days.innerHTML=d;
+
+hours.innerHTML=h;
+
+minutes.innerHTML=m;
+
+seconds.innerHTML=s;
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+</script>
+<section id="timeline" class="timelineSection">
+
+<div class="sectionTitle">
+    <span>Chapter One</span>
+    <h2>The Pages We Were Lucky Enough To Write</h2>
+    <p>Every memory still shines somewhere under the same sky.</p>
+</div>
+
+<div class="timeline">
+
+<div class="memory left">
+<div class="glass">
+<h3>🌙 The Day We Met</h3>
+<p>The day two strangers unknowingly became each other's favourite person.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>💬 Our First Conversation</h3>
+<p>A simple "Hi" slowly became hours of conversations.</p>
+</div>
+</div>
+
+<div class="memory left">
+<div class="glass">
+<h3>🎙 The First Voice Note</h3>
+<p>Hearing your voice slowly became my favourite part of the day.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>😊 The First Nickname</h3>
+<p>The moment our names became something only we called each other.</p>
+</div>
+</div>
+
+<div class="memory left">
+<div class="glass">
+<h3>🤍 The First Time We Met</h3>
+<p>No screen. No distance. Just us.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>🙏 Our First Visit To Gurudwara</h3>
+<p>Standing together, quietly praying for each other's happiness became one of my favourite memories.</p>
+</div>
+</div>
+
+<div class="memory left">
+<div class="glass">
+<h3>🌃 Our Secret Meeting</h3>
+<p>The world didn't know... but those moments belonged only to us.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>🚗 Our Risky Car Meets</h3>
+<p>Those few stolen moments inside the car somehow became our safest memories.</p>
+</div>
+</div>
+
+<div class="memory left">
+<div class="glass">
+<h3>🫂 The First Hug</h3>
+<p>The moment silence said everything.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>💋 The First Kiss</h3>
+<p>One moment... one heartbeat... and suddenly the world disappeared.</p>
+</div>
+</div>
+
+<div class="memory left">
+<div class="glass">
+<h3>📱 Endless Calls</h3>
+<p>Hours passed like minutes whenever you were there.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>🌙 Sleeping On Calls</h3>
+<p>Listening to your breathing slowly became my favourite goodnight.</p>
+</div>
+</div>
+
+<div class="memory left">
+<div class="glass">
+<h3>😂 Every Random Laugh</h3>
+<p>Some jokes never needed an explanation. We just understood them.</p>
+</div>
+</div>
+
+<div class="memory right">
+<div class="glass">
+<h3>❤️ Every Memory</h3>
+<p>Perfect or imperfect... every page became a part of our story.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.timelineSection{
+width:min(1100px,92%);
+margin:120px auto;
+position:relative;
+}
+
+.sectionTitle{
+text-align:center;
+margin-bottom:80px;
+}
+
+.sectionTitle span{
+letter-spacing:4px;
+font-size:13px;
+opacity:.65;
+text-transform:uppercase;
+}
+
+.sectionTitle h2{
+font-size:42px;
+margin:15px 0;
+}
+
+.sectionTitle p{
+opacity:.7;
+}
+
+.timeline{
+position:relative;
+padding:20px 0;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:50%;
+top:0;
+transform:translateX(-50%);
+width:3px;
+height:100%;
+background:linear-gradient(transparent,rgba(255,255,255,.35),transparent);
+border-radius:50px;
+}
+
+.memory{
+width:50%;
+padding:18px 40px;
+position:relative;
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+.memory.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.memory.left{
+left:0;
+}
+
+.memory.right{
+left:50%;
+}
+
+.memory::after{
+content:"";
+position:absolute;
+top:42px;
+width:16px;
+height:16px;
+background:#fff;
+border-radius:50%;
+box-shadow:0 0 18px rgba(255,255,255,.7);
+}
+
+.memory.left::after{
+right:-8px;
+}
+
+.memory.right::after{
+left:-8px;
+}
+
+.glass{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:22px;
+padding:24px;
+box-shadow:0 12px 30px rgba(0,0,0,.25);
+transition:.35s;
+}
+
+.glass:hover{
+transform:translateY(-6px);
+box-shadow:0 0 28px rgba(255,255,255,.12);
+}
+
+.glass h3{
+margin-bottom:12px;
+}
+
+.glass p{
+line-height:1.8;
+opacity:.82;
+}
+
+@media(max-width:850px){
+
+.timeline::before{
+left:18px;
+}
+
+.memory,
+.memory.left,
+.memory.right{
+width:100%;
+left:0;
+padding-left:55px;
+padding-right:10px;
+}
+
+.memory.left::after,
+.memory.right::after{
+left:10px;
+}
+
+}
+
+</style>
+
+<script>
+
+const memories=document.querySelectorAll(".memory");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:.2});
+
+memories.forEach(card=>observer.observe(card));
+
+</script>
+<section class="voice-section">
+
+<div class="sectionTitle">
+<span>Voice Vault</span>
+<h2>Some Words... In My Voice.</h2>
+<p>Whenever you feel like listening...</p>
+</div>
+
+<div class="beforePlay">
+
+<h3>Before You Press Play...</h3>
+
+<p>
+I wish main aur memories is website mein add kar pata.
+
+Unfortunately... woh ho nahi paaya.
+
+Toh maine apna thoda sa hissa in voice notes mein chhod diya hai.
+
+Bas ek request...
+
+Kabhi time mile toh sab ek baar zaroor sun lena. 🤍
+</p>
+
+</div>
+
+<div class="voiceGrid">
+
+<div class="voiceCard">
+
+<h3>🌙 When You Can't Sleep</h3>
+
+<p>Play whenever the night feels longer than usual.</p>
+
+<audio controls preload="none">
+<source src="audio/voice1.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="voiceCard">
+
+<h3>🌧 When Life Feels Heavy</h3>
+
+<p>A little reminder that you'll always be stronger than you think.</p>
+
+<audio controls preload="none">
+<source src="audio/voice2.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="voiceCard">
+
+<h3>😊 When You Need A Smile</h3>
+
+<p>Just one more reason to smile today.</p>
+
+<audio controls preload="none">
+<source src="audio/voice3.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="voiceCard">
+
+<h3>❤️ Whenever You Feel Like Listening</h3>
+
+<p>No reason needed. Just press play.</p>
+
+<audio controls preload="none">
+<source src="audio/voice4.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="voiceCard full">
+
+<h3>🎧 One Last Conversation</h3>
+
+<p>This one is a little longer... save it for when you have some quiet time.</p>
+
+<audio controls preload="none">
+<source src="audio/voice5.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="aboutHer">
+
+<div class="glassAbout">
+
+<h2>A Little About You 🤍</h2>
+
+<p>
+
+I know I don't say this enough...
+
+But thank you.
+
+Thank you for every little effort.
+
+For every smile.
+
+For every late-night call.
+
+For every risky car meet.
+
+For standing beside me when life wasn't easy.
+
+You were never just a part of my days...
+
+You became a part of my memories.
+
+And that's something I'll always be grateful for.
+
+</p>
+
+</div>
+
+</section>
+
+<style>
+
+.voice-section{
+
+width:min(1100px,92%);
+margin:130px auto;
+
+}
+
+.beforePlay{
+
+max-width:700px;
+margin:0 auto 60px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+padding:28px;
+
+border-radius:24px;
+
+text-align:center;
+
+}
+
+.beforePlay p{
+
+line-height:1.9;
+
+opacity:.82;
+
+margin-top:15px;
+
+}
+
+.voiceGrid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:22px;
+
+}
+
+.voiceCard{
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:24px;
+
+padding:24px;
+
+backdrop-filter:blur(18px);
+
+transition:.35s;
+
+}
+
+.voiceCard:hover{
+
+transform:translateY(-8px);
+
+}
+
+.voiceCard h3{
+
+margin-bottom:10px;
+
+}
+
+.voiceCard p{
+
+opacity:.75;
+
+line-height:1.7;
+
+margin-bottom:18px;
+
+}
+
+.voiceCard audio{
+
+width:100%;
+
+}
+
+.full{
+
+grid-column:1/-1;
+
+}
+
+.aboutHer{
+
+width:min(900px,92%);
+margin:120px auto;
+
+}
+
+.glassAbout{
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+padding:35px;
+
+border-radius:28px;
+
+text-align:center;
+
+}
+
+.glassAbout h2{
+
+margin-bottom:18px;
+
+}
+
+.glassAbout p{
+
+line-height:2;
+
+opacity:.82;
+
+}
+
+</style>
+<section class="starsSection">
+
+<div class="sectionTitle">
+<span>Our Sky</span>
+<h2>Some Dreams Still Belong To The Stars</h2>
+<p>Not every dream has to end... some are simply waiting.</p>
+</div>
+
+<div class="constellation">
+
+<div class="dream" data-text="🏔 One day, I still hope we'll stand together in the mountains.">
+⭐ Mountains
+</div>
+
+<div class="dream" data-text="🍜 Street food always tasted better when I imagined sharing it with you.">
+⭐ Street Food
+</div>
+
+<div class="dream" data-text="🎬 We still owe ourselves that horror movie night.">
+⭐ Horror Movie
+</div>
+
+<div class="dream" data-text="🌌 One quiet night... just us and the stars.">
+⭐ Stargazing
+</div>
+
+<div class="dream" data-text="🚗 One more peaceful car meet.">
+⭐ One More Meet
+</div>
+
+<div class="dream" data-text="❤️ Maybe one more memory.">
+⭐ One More Chapter
+</div>
+
+</div>
+
+<div class="dreamMessage" id="dreamMessage">
+Tap any star...
+</div>
+
+</section>
+
+<section class="photoReveal">
+
+<div class="sectionTitle">
+
+<span>One Memory</span>
+
+<h2>One Picture. Thousands Of Memories.</h2>
+
+</div>
+
+<div class="photoFrame">
+
+<img src="images/us.jpg" alt="Our Photo">
+
+</div>
+
+<p class="photoCaption">
+
+Some pictures don't need captions.
+
+They already tell the whole story.
+
+</p>
+
+</section>
+
+<section class="chapterTwo">
+
+<div class="book">
+
+<h2>📖 Chapter Two</h2>
+
+<p>
+
+Reserved for Tomorrow.
+
+</p>
+
+<div class="blankPage">
+
+I don't know whether this page will ever be written...
+
+But if life ever decides to write it,
+
+I hope it's filled with more smiles,
+
+more peace,
+
+and more beautiful memories.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="starsEnding">
+
+<h2>✨ Akku Tara &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp; Vedu Tara ✨</h2>
+
+<p>
+
+No matter where life takes us...
+
+These two stars will always share the same sky.
+
+</p>
+
+</section>
+
+<style>
+
+.starsSection{
+
+width:min(1100px,92%);
+
+margin:140px auto;
+
+text-align:center;
+
+}
+
+.constellation{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:18px;
+
+margin-top:45px;
+
+}
+
+.dream{
+
+padding:18px 26px;
+
+border-radius:50px;
+
+background:rgba(255,255,255,.07);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.dream:hover{
+
+transform:translateY(-5px) scale(1.03);
+
+background:rgba(255,255,255,.12);
+
+}
+
+.dreamMessage{
+
+margin-top:35px;
+
+opacity:.85;
+
+font-size:18px;
+
+min-height:40px;
+
+}
+
+.photoReveal{
+
+width:min(900px,92%);
+
+margin:140px auto;
+
+text-align:center;
+
+}
+
+.photoFrame{
+
+max-width:360px;
+
+margin:40px auto;
+
+padding:14px;
+
+background:white;
+
+border-radius:8px;
+
+transform:rotate(-2deg);
+
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.photoFrame img{
+
+width:100%;
+
+display:block;
+
+border-radius:4px;
+
+}
+
+.photoCaption{
+
+opacity:.8;
+
+font-style:italic;
+
+}
+
+.chapterTwo{
+
+width:min(900px,92%);
+
+margin:150px auto;
+
+}
+
+.book{
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+padding:40px;
+
+border-radius:26px;
+
+text-align:center;
+
+}
+
+.blankPage{
+
+margin-top:35px;
+
+padding:30px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.05);
+
+line-height:2;
+
+opacity:.85;
+
+}
+
+.starsEnding{
+
+text-align:center;
+
+margin:150px auto;
+
+max-width:700px;
+
+}
+
+.starsEnding h2{
+
+margin-bottom:20px;
+
+}
+
+.starsEnding p{
+
+line-height:2;
+
+opacity:.82;
+
+}
+
+</style>
+
+<script>
+
+const dreams=document.querySelectorAll(".dream");
+
+const message=document.getElementById("dreamMessage");
+
+dreams.forEach(card=>{
+
+card.onclick=()=>{
+
+message.innerHTML=card.dataset.text;
+
+};
+
+});
+
+</script>
+<section class="finalLetter">
+
+<div class="letterGlass">
+
+<span class="letterTag">One Last Page</span>
+
+<h2>Before We Close This Chapter...</h2>
+
+<p>
+
+I know... this website reached you a little earlier than our anniversary.
+
+Honestly...
+
+I wasn't sure if we'd still be together on the actual day.
+
+So I didn't want to miss the chance to give this to you.
+
+</p>
+
+<p>
+
+Thank you...
+
+For every smile.
+
+Every late-night call.
+
+Every risky car meet.
+
+Every prayer.
+
+Every hug.
+
+Every little moment that became a memory.
+
+I'll always be grateful for all of it.
+
+</p>
+
+<p>
+
+I really wished I could add more memories here.
+
+More photos.
+
+More moments.
+
+More pages.
+
+Unfortunately...
+
+Life had different plans.
+
+Maybe that's why this website isn't filled with hundreds of memories.
+
+Instead...
+
+It's filled with my heart.
+
+</p>
+
+<p>
+
+If you ever have the time...
+
+Please go through everything once.
+
+Look at our photo.
+
+Listen to every voice note.
+
+They're all a part of me that I wanted to leave with you.
+
+</p>
+
+<p>
+
+I genuinely hope your future is beautiful.
+
+I hope you always stay happy.
+
+I hope life gives you everything you've ever wished for.
+
+You deserve peace.
+
+You deserve love.
+
+You deserve happiness.
+
+</p>
+
+<p>
+
+And one last thing...
+
+Whether I'm a part of your life or not...
+
+I'll always be one of the people quietly wishing the best for you.
+
+Not because I have to.
+
+But because I genuinely want to.
+
+If life ever brings you back someday...
+
+You'll always find kindness from my side.
+
+</p>
+
+<p>
+
+Take care of yourself.
+
+Always.
+
+🤍
+
+</p>
+
+</div>
+
+</section>
+
+<section class="endingScene">
+
+<div class="endingMoon"></div>
+
+<h2>✨ Akku Tara &nbsp;&nbsp;⭐&nbsp;&nbsp; Vedu Tara ✨</h2>
+
+<p>
+
+Maybe tomorrow writes another chapter.
+
+Maybe it doesn't.
+
+But somewhere above us...
+
+these two stars will always share the same sky.
+
+</p>
+
+<p class="goodnight">
+
+Goodnight.
+
+Thank you for being one of the most beautiful chapters of my life.
+
+</p>
+
+</section>
+
+<style>
+
+.finalLetter{
+
+width:min(900px,92%);
+
+margin:150px auto;
+
+}
+
+.letterGlass{
+
+background:rgba(255,255,255,.06);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+padding:40px;
+
+border-radius:28px;
+
+line-height:2;
+
+}
+
+.letterTag{
+
+display:inline-block;
+
+margin-bottom:15px;
+
+letter-spacing:3px;
+
+opacity:.65;
+
+text-transform:uppercase;
+
+font-size:13px;
+
+}
+
+.letterGlass h2{
+
+margin-bottom:25px;
+
+}
+
+.letterGlass p{
+
+margin-bottom:22px;
+
+opacity:.86;
+
+}
+
+.endingScene{
+
+padding:180px 20px 120px;
+
+text-align:center;
+
+}
+
+.endingMoon{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+margin:0 auto 35px;
+
+background:radial-gradient(circle,#fff,#e8e8e8);
+
+box-shadow:
+
+0 0 35px rgba(255,255,255,.45),
+
+0 0 80px rgba(173,216,255,.15);
+
+animation:floatMoon 6s ease-in-out infinite;
+
+}
+
+.goodnight{
+
+margin-top:45px;
+
+opacity:.7;
+
+font-style:italic;
+
+}
+
+@keyframes floatMoon{
+
+50%{
+
+transform:translateY(10px);
+
+}
+
+}
+
+</style>
+
+<script>
+setInterval(()=>{
+ const s=document.createElement('div');
+ s.style.position='fixed';
+ s.style.top=(Math.random()*40)+'%';
+ s.style.left='100%';
+ s.style.width='2px';
+ s.style.height='2px';
+ s.style.background='white';
+ s.style.boxShadow='0 0 10px white';
+ s.style.transform='rotate(-20deg)';
+ s.style.zIndex='-2';
+ s.style.transition='transform 1.8s linear,left 1.8s linear';
+ document.body.appendChild(s);
+ requestAnimationFrame(()=>{
+   s.style.left='-10%';
+   s.style.transform='translate(-120vw,40vh)';
+ });
+ setTimeout(()=>s.remove(),2000);
+},25000);
+</script>
+
+</body>
+</html>
